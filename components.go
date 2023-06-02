@@ -217,7 +217,7 @@ func (event *VEvent) getTimeProp(componentProperty ComponentProperty, expectAllD
 		return time.ParseInLocation(icalDateFormatUtc, dateStr+"Z", time.UTC)
 	} else if grp1len > 0 && grp3len == 0 && tOrZGrp == "" && zGrp == "" {
 		if propLoc == nil {
-			return time.ParseInLocation(icalDateFormatLocal, dateStr, time.Local)
+			return time.ParseInLocation(icalDateFormatUtc, dateStr+"Z", time.UTC)
 		} else {
 			return time.ParseInLocation(icalDateFormatLocal, dateStr, propLoc)
 		}
